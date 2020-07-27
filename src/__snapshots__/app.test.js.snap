@@ -4,18 +4,22 @@ exports[`renders snapshot as expected 1`] = `
 <div
   className="App"
 >
-  <header
-    style={
-      Object {
-        "fontFamily": "Roboto",
-        "height": "50px",
-      }
-    }
+  <div
+    className="Pagehead-r7ayx1-0 jGaMZw"
   >
-    <h1>
-      Flexbox Visualization
+    <h1
+      style={
+        Object {
+          "color": "#979797",
+          "fontFamily": "'Rubik', sans-serif",
+          "letterSpacing": "1px",
+          "padding": "0 40px",
+        }
+      }
+    >
+      Flexbox Generator
     </h1>
-  </header>
+  </div>
   <h1>
     404
   </h1>
@@ -27,5 +31,112 @@ exports[`renders snapshot as expected 1`] = `
   >
     Go Home
   </a>
+  <footer
+    style={
+      Object {
+        "marginTop": "40px",
+        "padding": "40px",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <div
+        className="hover-grow"
+      >
+        <a
+          href="https://www.buymeacoffee.com/himatbub"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="Buy Me A Coffee"
+            src="https://cdn.buymeacoffee.com/buttons/default-blue.png"
+            style={
+              Object {
+                "height": "51px",
+                "width": "217px",
+              }
+            }
+          />
+        </a>
+      </div>
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+          }
+        }
+      >
+        <a
+          href="https://github.com/hi-matbub/flexbox/blob/master/LICENSE"
+          style={
+            Object {
+              "fontFamily": "'Rubik', sans-serif",
+              "letterSpacing": "1px",
+              "lineHeight": "28px",
+            }
+          }
+        >
+           
+          License
+        </a>
+        <a
+          href="https://github.com/hi-matbub/flexbox/blob/master/CONTRIBUTING.md"
+          style={
+            Object {
+              "fontFamily": "'Rubik', sans-serif",
+              "letterSpacing": "1px",
+              "lineHeight": "28px",
+            }
+          }
+        >
+          Contributing
+        </a>
+        <a
+          href="https://github.com/hi-matbub/flexbox/issues"
+          style={
+            Object {
+              "fontFamily": "'Rubik', sans-serif",
+              "letterSpacing": "1px",
+              "lineHeight": "28px",
+            }
+          }
+        >
+          Report a bug
+        </a>
+      </div>
+    </div>
+    <small
+      style={
+        Object {
+          "display": "flex",
+          "fontFamily": "\\"Rubik\\", sans-serif",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <i>
+        © 
+        2020
+          |  
+        <a
+          href="mailto:hi@matbub.co"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+           
+          hi-matbub
+        </a>
+      </i>
+    </small>
+  </footer>
 </div>
 `;

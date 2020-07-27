@@ -1,39 +1,72 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import ControlPanel from './controller/controller_';
 import './page-queries.css';
-import {STORE} from '../comps/STORE';
-
-const screen = {
-  height: '200px',
-  width: '100%',
-  borderRadius: '6px',
-  background: '#1F1F1F',
-  overflowY: 'scroll',
-};
-
-const code = {
-  color: '#EEEEEE',
-  fontFamily: 'Roboto',
-  letterSpacing: '1px',
-  margin: '6px 60px 6px 60px',
-};
+import {STORE} from './lib/STORE';
+import {ArrowRightIcon, ClippyIcon} from '@primer/octicons-react';
+import './github_animations.scss';
+import './animistas.css';
 
 const defaults = {
   width: '100%',
   height: '450px',
   display: 'flex',
-  paddingLeft: '60px',
+  margin: '0 40px',
   flexDirection: 'column',
-  justifyContent: 'space-between',
+  background: '#eee',
+  overflowY: 'scroll',
+  position: 'relative',
 };
 
 const CodeBlock = (props) => {
   return (
-    <div style={screen}>
-      <h2 style={{marginLeft: '20px', color: '#EEE'}}>{props.dataType}</h2>
-      <pre>
-        <code style={code}>{props.content}</code>
-      </pre>
+    <pre style={{padding: '20px'}}>
+      <code style={{font: 'monospace'}}>{props.content}</code>
+    </pre>
+  );
+};
+
+const Tooltip = (props) => {
+  return (
+    <small
+      ref={props.ref}
+      className="border rounded-0 p-1 slide-in-right"
+      style={{background: '#f6f8fa'}}>
+      {'Copied to clipboard!'}
+    </small>
+  );
+};
+
+const Clipboard = (props) => {
+  const [clipped, setClipped] = useState(false);
+  const tooltipRef = useRef();
+
+  useEffect(() => {
+    console.log(tooltipRef.current);
+  });
+
+  const handleTooltip = () => {
+    setClipped(!clipped);
+    setTimeout(() => {}, 3000);
+    console.log(clipped);
+  };
+
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        right: '20px',
+        top: '20px',
+        display: 'flex',
+        flexDirection: 'column-reverse',
+      }}>
+      {clipped === true ? <Tooltip ref={tooltipRef} /> : null}
+      <button
+        onClick={handleTooltip}
+        className={'btn hover-grow mb-2'}
+        style={{width: 'fit-content', alignSelf: 'flex-end'}}
+        aria-label="Clippy icon">
+        <ClippyIcon size={22} />
+      </button>
     </div>
   );
 };
@@ -42,26 +75,38 @@ const Copy = (props) => {
   const keys = Object.keys(STORE);
   if (keys.includes(props.data)) {
     return (
-      <div style={defaults}>
-        <div style={{display: 'flex'}}>
-          <CodeBlock dataType={'CSS'} content={STORE[props.data].css} />
+      <section style={defaults}>
+        <Clipboard />
+        <div style={{display: 'flex', height: '60%'}}>
+          <CodeBlock language={'css'} content={STORE[props.data].css} />
         </div>
-        <div style={{display: 'flex'}}>
-          <h2>HTML</h2>
-          <CodeBlock dataType={'HTML'} content={STORE[props.data].html} />
+        <div style={{display: 'flex', height: '40%'}}>
+          <CodeBlock language={'html'} content={STORE[props.data].html} />
         </div>
-      </div>
+      </section>
     );
   } else {
     return (
-      <div style={defaults}>
-        <div style={{display: 'flex', flexDirection: 'column'}}>
-          <CodeBlock dataType={'CSS'} />
+      <section style={defaults}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+          }}>
+          <div
+            className="hover-grow"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <h2 style={{fontFamily: '"Rubik", sans-serif'}}>Try me!</h2>
+            <ArrowRightIcon size={60} />
+          </div>
         </div>
-        <div style={{display: 'flex', flexDirection: 'column'}}>
-          <CodeBlock dataType={'HTML'} />
-        </div>
-      </div>
+      </section>
     );
   }
 };
@@ -70,10 +115,18 @@ const Demo = () => {
   const [data, setData] = useState([]);
 
   return (
-    <div style={{display: 'flex', flexWrap: 'flex', width: '100%'}}>
-      <Copy data={data} />
-      <ControlPanel handleData={(i) => setData(i)} />
-    </div>
+    <main style={{width: '100%'}}>
+      <section style={{padding: '40px'}}>
+        <p>
+          Flexbox can be confusing. Let this guide help you master the ways of
+          flexbox in the most <i>pratical</i> approach possible.
+        </p>
+      </section>
+      <div style={{display: 'flex'}}>
+        <Copy data={data} />
+        <ControlPanel handleData={(i) => setData(i)} />
+      </div>
+    </main>
   );
 };
 
