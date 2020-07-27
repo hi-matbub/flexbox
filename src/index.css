@@ -1,9 +1,8 @@
 * {
   box-sizing: border-box;
-  
 }
 
-h1{  
+h1 {
   color: #979797;
 }
 
@@ -15,7 +14,3 @@ h1{
   margin: 2px;
   cursor: pointer;
 }
-
-
-/* font-family: 'Pacifico', cursive;
-font-family: 'Rubik', sans-serif; */
