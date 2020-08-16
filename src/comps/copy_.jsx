@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import moment from 'moment';
 //libs
 import {STORE} from '../lib/STORE';
@@ -32,7 +32,11 @@ ${STORE[props.data].html}`;
       </div>
     );
   } else {
-    return null;
+    return (
+      <div className={'codeblock empty'}>
+        {'Try clicking above!'}
+      </div>
+    );
   }
 };
 

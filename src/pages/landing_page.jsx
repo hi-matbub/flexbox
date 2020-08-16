@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 // comps
-import Copy from '../comps/copy_';
 import ControlPanel from '../comps/control_panel';
 import Landing from '../comps/landing';
 import ControlResponse from '../comps/control_response';
