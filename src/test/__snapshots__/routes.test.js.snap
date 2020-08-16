@@ -24,79 +24,6 @@ exports[`renders snapshot as expected 1`] = `
             </span>
           </h1>
         </span>
-        <p
-          className="alt-text"
-          style={
-            Object {
-              "marginBottom": "24px",
-            }
-          }
-        >
-          Subscribe for 30 days of Wire-framing Challenges.
-        </p>
-        <div
-          id="mc_embed_signup"
-        >
-          <form
-            action="https://matbub.us17.list-manage.com/subscribe/post?u=eb89624098c8ce40b7f3b26ef&id=909f807d9f"
-            className="validate"
-            id="mc-embedded-subscribe-form"
-            method="post"
-            name="mc-embedded-subscribe-form"
-            noValidate={true}
-            target="_blank"
-          >
-            <div
-              className="form-cont"
-            >
-              <input
-                aria-label="Repository description"
-                className="email"
-                defaultValue=""
-                id="mce-EMAIL"
-                name="EMAIL"
-                placeholder="e.g. hi@matbub.co"
-                style={
-                  Object {
-                    "border": 0,
-                  }
-                }
-                type="email"
-              />
-              <div
-                className="clear"
-                id="mce-responses"
-              >
-                <div
-                  className="response"
-                  id="mce-error-response"
-                  style={
-                    Object {
-                      "display": "none",
-                    }
-                  }
-                />
-                <div
-                  className="response"
-                  id="mce-success-response"
-                  style={
-                    Object {
-                      "display": "none",
-                    }
-                  }
-                />
-              </div>
-              <button
-                className="button"
-                id="mc-embedded-subscribe"
-                name="subscribe"
-                type="submit"
-              >
-                Subscribe
-              </button>
-            </div>
-          </form>
-        </div>
       </div>
     </div>
     <div
@@ -116,7 +43,7 @@ exports[`renders snapshot as expected 1`] = `
       className="control_panel"
       style={
         Object {
-          "backgroundImage": "url(bg01.svg)",
+          "backgroundImage": "url(bg02.png)",
         }
       }
     >
@@ -282,6 +209,11 @@ exports[`renders snapshot as expected 1`] = `
         alt="char"
         src="char-002.svg"
       />
+    </div>
+    <div
+      className="codeblock empty"
+    >
+      Try clicking above!
     </div>
   </div>
   <footer>
