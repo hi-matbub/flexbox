@@ -8,7 +8,7 @@ exports[`renders snapshot as expected 1`] = `
     className="control_panel"
     style={
       Object {
-        "backgroundImage": "url(bg01.svg)",
+        "backgroundImage": "url(bg02.png)",
       }
     }
   >

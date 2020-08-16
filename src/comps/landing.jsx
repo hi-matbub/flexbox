@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/landing.css';
-import Subscribe from './subscribe';
+// import Subscribe from './subscribe';
 import char001 from '../lib/static/char-001.svg';
 
 const LearnFlexBox = () => (
@@ -18,10 +18,10 @@ const Landing = (props) => {
       <div className="col-cont">
         <div className="lfb-cont">
           <LearnFlexBox />
-          <p className={'alt-text'} style={{marginBottom: '24px'}}>
+          {/* <p className={'alt-text'} style={{marginBottom: '24px'}}>
             {'Subscribe for 30 days of Wire-framing Challenges.'}
           </p>
-          <Subscribe />
+          <Subscribe /> */}
         </div>
       </div>
       <div className="col-char">
