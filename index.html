@@ -20,13 +20,19 @@
       flex-direction: column;
     }
 
-    .drop-zone {
+    .drop-zone-container {
       width: 70%;      
-      height: 500px;
+      height: 600px;
+      display: flex;
+      flex-wrap: wrap;      
     }
 
-    .drop-zone:hover {
-      background: greenyellow;
+    .drop-zone {
+      width: 33%;
+      height: 33%;
+      border: 1px solid #FFF;
+      border-radius: 12px;
+      background: indianred;
     }
 
     .draggable {
@@ -42,24 +48,34 @@
 
   <main>
     <section class="draggable-items-container"></section>
-    <section class="drop-zone"></section>
+    <section class="drop-zone-container"></section>
   </main>
 
   <script>    
     const globals = () => {
       (() => {
-        // drop zone
-        const dropZone = document.querySelector(".drop-zone");
-        dropZone.ondragover = (event) => event.preventDefault();
-        dropZone.ondrop = (event) => {        
-          event.preventDefault();
-          const id = event.dataTransfer.getData('text');          
-          const draggableElement = document.getElementById(id);
-          // set to specifc drop zone 0 - 8           
-          
-          // const dropzone = event.target;
-          dropZone.appendChild(draggableElement);
-          event.dataTransfer.clearData();
+        const dropZoneContainer = document.querySelector(".drop-zone-container");
+
+        for (let i = 0; i < 9; i++){
+          console.log(i)
+        
+          // drop zone
+          const dropZone = document.createElement("div");
+          dropZone.id = `drop-zone-${i}`
+          dropZone.className = 'drop-zone'
+          dropZone.ondragover = (event) => event.preventDefault();
+          dropZone.ondrop = (event) => {        
+            event.preventDefault();
+            const id = event.dataTransfer.getData('text');          
+            const draggableElement = document.getElementById(id);
+            // set to specifc drop zone 0 - 8           
+
+            // const dropzone = event.target;
+            dropZone.appendChild(draggableElement);
+            event.dataTransfer.clearData();
+          }
+
+          dropZoneContainer.appendChild(dropZone)
         }
       })();
 
