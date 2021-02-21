@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Flexbox</title>
+  <style>
+    main {
+      display: flex;
+    }
+
+    section {
+      display: flex;      
+    }
+
+    .draggable-items-container {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drop-zone {
+      width: 70%;      
+      height: 500px;
+    }
+
+    .drop-zone:hover {
+      background: greenyellow;
+    }
+
+    .draggable {
+      padding: 20px;
+      margin: 2px 0;
+      border: 1px solid #FFF;
+      border-radius: 12px;
+      background: cornflowerblue;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <section class="draggable-items-container"></section>
+    <section class="drop-zone"></section>
+  </main>
+
+  <script>    
+    const globals = () => {
+      (() => {
+        // drop zone
+        const dropZone = document.querySelector(".drop-zone");
+        dropZone.ondragover = (event) => event.preventDefault();
+        dropZone.ondrop = (event) => {        
+          event.preventDefault();
+          const id = event.dataTransfer.getData('text');          
+          const draggableElement = document.getElementById(id);
+          // set to specifc drop zone 0 - 8           
+          
+          // const dropzone = event.target;
+          dropZone.appendChild(draggableElement);
+          event.dataTransfer.clearData();
+        }
+      })();
+
+      (() => {        
+        // build draggable items on DOM
+        const abc = ["A", "B", "C"];      
+        for (let i =0; i < abc.length; i++){
+          const draggable = document.createElement("div");
+          draggable.className = `draggable`;
+          draggable.id = `draggable-item-${i}`
+          draggable.draggable="true"
+          draggable.innerText= `${abc[i]}.`
+
+          draggable.ondragstart = (event) => {
+            event.dataTransfer.setData('text/plain', event.target.id);
+            event.currentTarget.style.backgroundColor = 'yellow';
+          }
+
+
+          document.querySelector(".draggable-items-container").appendChild(draggable);
+        }
+      })();
+    }
+
+    // invoke global funcs
+    globals();
+
+  </script>
+</body>
+</html>
